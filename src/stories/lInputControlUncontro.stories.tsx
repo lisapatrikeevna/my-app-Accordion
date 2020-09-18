@@ -43,7 +43,7 @@ export const ContolledCheckbox = () => {
 export const ContolledSelect = () => {
   let [parentValue,setParentValue]=useState<string | undefined>(undefined)
   const changedInput=(e:ChangeEvent<HTMLSelectElement>)=>{
-    setParentValue(e.currentTarget.valuegit)
+    setParentValue(e.currentTarget.value)
   }
 return(
   <select value={parentValue} onChange={changedInput}>
@@ -55,7 +55,7 @@ return(
 )
 }
 export const ContolledInput = () => {
-  let [parentValue,setParentValue]=useState('')
+  const [parentValue,setParentValue]=useState('')
   const changedInput=(e:ChangeEvent<HTMLInputElement>)=>{
     setParentValue(e.currentTarget.value)
   }

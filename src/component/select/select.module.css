@@ -1,0 +1,19 @@
+.select .mainTitle{
+    /*border: none;*/
+    /*border-bottom: 2px solid #1ea7fd;*/
+    /*font-size: 22px;*/
+    color: #2677ab;
+}
+.select{
+    background: #cecece;
+    color: #1ea7fd;
+    height: 22px;
+}
+.items{
+    /* position: absolute; */
+    padding: 5px;
+    border: 2px solid lightblue;
+}
+.select .item.selected{
+    background: #cecece;
+}
