@@ -11,12 +11,12 @@ export const OnMode = () => {
     return (
         <>
             <h1>qqqqqqq</h1>
-            <Select
-                value={value}
-                onChange={setValue}
-                items={[{title: "Lisa", value: 1}, {title: "Dan", value: 2},
-                    {title: "Dina", value: 3}, {title: "Masya", value: 4}]}
-            />
+            {/*<Select*/}
+            {/*    value={value}*/}
+            {/*    onChange={onChange(props.value)}*/}
+            {/*    items={[{title: "Lisa", value: 1}, {title: "Dan", value: 2},*/}
+            {/*        {title: "Dina", value: 3}, {title: "Masya", value: 4}]}*/}
+            {/*/>*/}
         </>
     )
 }
@@ -25,13 +25,13 @@ export const OffMode = () => {
     const [value, setValue] = useState(null)
     return (
         <>
-            <Select
-                value={value}
-                onChange={setValue}
-                items={[{title: "Lisa", value: 1}, {title: "Dan", value: 2}, {title: "Dina", value: 3}, {
-                    title: "Masya", value: 4
-                }]}
-            />
+            {/*<Select*/}
+            {/*    value={value}*/}
+            {/*    onChange={setValue}*/}
+            {/*    items={[{title: "Lisa", value: 1}, {title: "Dan", value: 2}, {title: "Dina", value: 3}, {*/}
+            {/*        title: "Masya", value: 4*/}
+            {/*    }]}*/}
+            {/*/>*/}
         </>
     )
 }

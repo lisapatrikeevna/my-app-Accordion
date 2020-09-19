@@ -15,8 +15,10 @@ const Users = (props: { users: Array<string> }) => {
 export const Example1 = () => {
     const [counter, setCounter] = useState(0);
     const [users, setUsers] = useState(['Lisa', 'Dan']);
-    return <>
-        <NewMessageCounter count={counter}/>
-        <Users users={users}
+    return (
+        <>
+            <NewMessageCounter count={counter}/>
+            <Users users={users}/>
         </>
-        }
+        )
+}

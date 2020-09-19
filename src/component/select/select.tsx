@@ -1,5 +1,6 @@
 import React, {useState, KeyboardEvent, useEffect} from 'react';
 import cl from './select.module.css'
+import {valueType} from "../../App";
 
 type ItemType = {
     title: string
@@ -7,13 +8,12 @@ type ItemType = {
 }
 export type SelectType = {
     value?: any
-    onChange?: (value: any) => void
+    onChange: (value: valueType) => void
     items: ItemType[]
-    // title:string
 }
 
 export function Select(props: SelectType) {
-    const [active, setActive] = useState(true);
+    const [active, setActive] = useState(false);
     const [hoverEL, setHoverEL] = useState(props.value);
 
     const selectedItem = props.items.find(i => i.value === props.value)
@@ -25,7 +25,7 @@ export function Select(props: SelectType) {
 
     const showActive = () => { setActive(!active) }
     const itemClicked = (value: any) => {
-        // props.onChange(value);
+        props.onChange(value);
         showActive();
     }
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -34,14 +34,14 @@ export function Select(props: SelectType) {
                 if (props.items[i].value === hoverEL) {
                     const pretendentElement = e.key === 'ArrowDown' ? props.items[i + 1] : props.items[i - 1];
                     if (pretendentElement) {
-                        // props.onChange(pretendentElement.value)
-                        // setHoverEL(props.items[i+1].value);
+                        props.onChange(pretendentElement.value)
+                        setHoverEL(props.items[i+1].value);
                         return;
                     }
                 }
             }
             if (!selectedItem) {
-                // props.onChange(props.items[0].value);
+                props.onChange(props.items[0].value);
             }
         }
         if (e.key === 'Enter' || e.key === 'Escape') {
@@ -64,7 +64,6 @@ export function Select(props: SelectType) {
                         </div>)}
                 </div>
                 }
-                {/*<div className={cl.item}>{props.items.map(i => <div key={i.value}>{i.title}</div>)}</div>*/}
             </div>
             {/* <select>
                 <option value="">I</option>

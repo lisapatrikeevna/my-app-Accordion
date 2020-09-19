@@ -12,24 +12,17 @@ import {UnRating} from './component/ratings/UnRating';
 import OnOffControl from './component/onOffControl';
 import {Select} from "./component/select/select";
 
-// const App = () => {
-//   return (
-//     <div className="App">
-//       <Header/>
-//       <Navbar/>
-//       <Offer/>
-//       <Footer/>
-//     </div>
-//   );
-// }
-// function hello(){
-
+export type valueType = 0|1|2;
 function App(props: any) {
     let [ratingValue, setRatingValue] = useState<starValueType>(0);
     let [collapsing, setCollapsing] = useState<boolean>(true);
     let [on, setOn] = useState<boolean>(true);
     const onClickBody = (value: any) => {
         alert('user with ID $(value) can be happy')
+    }
+    const [value,setValue]=useState<valueType>(0)
+    const onChange =(value:valueType)=>{
+        setValue(value)
     }
     return (
         <div className="app">
@@ -38,6 +31,10 @@ function App(props: any) {
             {/* <UnRating/> */}
             {/* Article2 */}
             <Rating value={ratingValue} onClick={setRatingValue}/>
+            <Select
+                value={value}
+                onChange={onChange}
+                items={[{title:"Lisa",value:1},{title:"Dan",value:2},{title:"Dina",value:0},{title:"Masya",value:4}]}/>
             <Accordion
                 titleValue={"second title"}
                 collapsing={collapsing}
@@ -53,10 +50,7 @@ function App(props: any) {
             <OnOffControl onClick={setOn} on={on}/>{on.toString()}
             {/* <OnOffControl onClick={()=>{setOn(!on)}} on={on}/> */}
             {/*<Select/>*/}
-            <Select
-                // name={"select name"}
-                
-                items={[{title:"Lisa",value:1},{title:"Dan",value:2},{title:"Dina",value:3},{title:"Masya",value:4}]}/>
+
         </div>
     )
 }
